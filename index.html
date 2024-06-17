@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Médica - Sistema de Gestão</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            padding: 8px;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+        }
+
+        nav ul li a:hover {
+            background-color: #ddd;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        form {
+            margin-bottom: 20px;
+            border: 1px solid #ffffff;
+            padding: 15px;
+            width: 400px;
+            background-color: #ffffff;
+            margin: 0 auto;
+        }
+
+        label,
+        input,
+        select {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ccc;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Sistema de Gestão - Clínica Médica</h1>
+
+    <!-- Menu de Navegação -->
+    <nav>
+        <ul>
+            <li><a href="cadastro.html">Cadastro de Paciente</a></li>
+            <li><a href="agendamento.html">Agendamento de Consulta</a></li>
+            <li><a href="consulta.html">Consultar Dados</a></li>
+            <li><a href="atualizacao.html">Atualizar Dados</a></li>
+        </ul>
+    </nav>
+
+    <!-- Seção de Cadastro de Paciente -->
+
+
+    <!-- Seção de Agendamento de Consulta -->
+
+    <!-- Seção de Consultar Dados -->
+
+    <!-- Seção de Atualizar Dados -->
+
+    <!--IMAGEM BACKGROUND-->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Imagem de Fundo</title>
+    <style>
+        body {
+            background-image: url('img/logo.jpg');
+            /* Substitua 'caminho/para/sua/imagem.jpg' pelo caminho da sua imagem */
+            background-size: cover;
+            /* Para cobrir todo o background */
+            background-repeat: no-repeat;
+        }
+    </style>
+    </head>
+
+
+    <script>
+        // Função para cadastrar paciente
+        document.getElementById('formCadastroPaciente').addEventListener('submit', function (event) {
+            event.preventDefault();
+            let nome = document.getElementById('nome').value;
+            let cpf = document.getElementById('cpf').value;
+            let dataNascimento = document.getElementById('dataNascimento').value;
+
+            // Aqui você pode adicionar lógica para enviar os dados para o backend, salvar em um banco de dados, etc.
+            console.log('Paciente cadastrado:');
+            console.log('Nome: ' + nome);
+            console.log('CPF: ' + cpf);
+            console.log('Data de Nascimento: ' + dataNascimento);
+
+            // Limpar campos após cadastro (opcional)
+            this.reset();
+        });
+
+        // Função para agendar consulta
+        document.getElementById('formAgendamentoConsulta').addEventListener('submit', function (event) {
+            event.preventDefault();
+            let cpf = document.getElementById('cpfConsulta').value;
+            let dataConsulta = document.getElementById('dataConsulta').value;
+            let horarioConsulta = document.getElementById('horarioConsulta').value;
+            let localConsulta = document.getElementById('localConsulta').value;
+            let formaPagamento = document.getElementById('formaPagamento').value;
+
+            // Aqui você pode adicionar lógica para enviar os dados para o backend, salvar em um banco de dados, etc.
+            console.log('Consulta agendada:');
+            console.log('CPF do Paciente: ' + cpf);
+            console.log('Data da Consulta: ' + dataConsulta);
+            console.log('Horário da Consulta: ' + horarioConsulta);
+            console.log('Local da Consulta: ' + localConsulta);
+            console.log('Forma de Pagamento: ' + formaPagamento);
+
+            // Limpar campos após agendamento (opcional)
+            this.reset();
+        });
+
+        // Função para consultar dados por CPF
+        document.getElementById('formConsulta').addEventListener('submit', function (event) {
+            event.preventDefault();
+            let cpfConsulta = document.getElementById('cpfConsulta').value;
+
+            // Limpar tabela de resultados
+            let tabela = document.getElementById('tabelaResultados').getElementsByTagName('tbody')[0];
+            tabela.innerHTML = '';
+
+            // Buscar consultas relacionadas ao CPF
+            dadosConsultas.forEach(function (consulta) {
+                if (consulta.cpf === cpfConsulta) {
+                    let newRow = tabela.insertRow();
+                    newRow.innerHTML = '<td>' + consulta.nome + '</td><td>' + consulta.cpf + '</td><td>' + consulta.dataNascimento + '</td><td>' + consulta.dataConsulta + '</td><td>' + consulta.horarioConsulta + '</td><td>' + consulta.localConsulta + '</td><td>' + consulta.formaPagamento + '</td>';
+                }
+            });
+        });
+        // Limpar a tabela antes de inserir novos dados (simulado)
+        document.getElementById('tbodyResultados').innerHTML = '';
+
+        // Exemplo de dados para simulação
+        let dados = [
+            { nome: 'João', cpf: '123.456.789-00', dataNascimento: '01/01/1980', dataConsulta: '15/07/2024', horarioConsulta: '14:30', localConsulta: 'Hospital Santa Lucia', formaPagamento: 'Cartão' },
+            { nome: 'Maria', cpf: '987.654.321-00', dataNascimento: '15/05/1975', dataConsulta: '10/07/2024', horarioConsulta: '10:00', localConsulta: 'Hospital Santa Maria', formaPagamento: 'Dinheiro' }
+        ];
+
+        // Inserir os dados na tabela
+        dados.forEach(function (item) {
+            let newRow = document.getElementById('tbodyResultados').insertRow();
+            newRow.innerHTML = '<td>' + item.nome + '</td><td>' + item.cpf + '</td><td>' + item.dataNascimento + '</td><td>' + item.dataConsulta + '</td><td>' + item.horarioConsulta + '</td><td>' + item.localConsulta + '</td><td>' + item.formaPagamento + '</td>';
+        });
+
+        // Função para atualizar dados (simulação de atualização)
+        document.getElementById('formAtualizarDados').addEventListener('submit', function (event) {
+            event.preventDefault();
+            let cpfAtualizacao = document.getElementById('cpfAtualizacao').value;
+            let novoNome = document.getElementById('nomeAtualizacao').value;
+            let novaDataNascimento = document.getElementById('dataNascimentoAtualizacao').value;
+
+            // Procurar pelo CPF no array de pacientes e atualizar os dados
+            dadosPacientes.forEach(function (paciente) {
+                if (paciente.cpf === cpfAtualizacao) {
+                    paciente.nome = novoNome || paciente.nome; // Atualizar nome se fornecido, caso contrário, manter o existente
+                    paciente.dataNascimento = novaDataNascimento || paciente.dataNascimento; // Atualizar data de nascimento se fornecida, caso contrário, manter a existente
+                }
+            });
+
+            console.log('Dados atualizados para CPF: ' + cpfAtualizacao);
+            console.log('Novo Nome: ' + novoNome);
+            console.log('Nova Data de Nascimento: ' + novaDataNascimento);
+
+            // Limpar campos após atualização (opcional)
+            this.reset();
+        });
+    </script>
+</body>
+
+</html>
